@@ -200,7 +200,7 @@ public class Main{
             @Override
             public void actionPerformed(ActionEvent e) {
                 ArrayList<String> executionLine = cal(x);
-                ArrayList<Character> operatorList = operation(x);
+                ArrayList<Character> operatorList = operationListing(x);
                 double result = Double.parseDouble(executionLine.get(0));
                 int i = 1;
                 for (Character character : operatorList) {
@@ -274,9 +274,9 @@ public class Main{
         return calculation;
     }
 
-    public static ArrayList<Character> operation (StringBuffer x){
+    public static ArrayList<Character> operationListing(StringBuffer x){
         ArrayList<Character> operation = new ArrayList<>();
-        for (int i = 0; i < x.length(); i++){
+        for (int i = 1; i < x.length(); i++){
             if (x.toString().charAt(i) == '+' || x.toString().charAt(i) == '-' || x.toString().charAt(i) == '/' || x.toString().charAt(i) == '*')
                 if (x.toString().charAt(i + 1) != '+' && x.toString().charAt(i + 1) != '-' && x.toString().charAt(i + 1) != '*' && x.toString().charAt(i + 1) != '/')
                     operation.add(x.toString().charAt(i));
