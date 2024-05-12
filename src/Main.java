@@ -81,6 +81,18 @@ public class Main{
             }
         });
 
+        JButton factButton = new JButton("!");
+        factButton.setBounds(0,0, 50, 50);
+        frame.add(factButton);
+
+        factButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String out = String.valueOf(factorial(Integer.parseInt(x.toString())));
+                output.setText(out);
+            }
+        });
+
         buttons[1].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -271,6 +283,7 @@ public class Main{
         for (int i = 0; i < calculation.size(); i++)
             if (calculation.get(i).equals(""))
                 calculation.remove(i);
+        System.out.println(calculation);
         return calculation;
     }
 
@@ -281,6 +294,15 @@ public class Main{
                 if (x.toString().charAt(i + 1) != '+' && x.toString().charAt(i + 1) != '-' && x.toString().charAt(i + 1) != '*' && x.toString().charAt(i + 1) != '/')
                     operation.add(x.toString().charAt(i));
         }
+        System.out.println(operation);
         return operation;
+    }
+
+    public static int factorial(int x){
+        int result = 1;
+        for(int i = x; i > 0; i--)
+            result *= i;
+
+        return result;
     }
 }
